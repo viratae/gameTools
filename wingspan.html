@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <style>
+        .tableContainer {
+            padding: 10vw;
+        }
+        table, th, td {
+            border:1px solid black;
+            border-collapse: collapse;
+        }
+        th, td {
+            text-align: left;
+            padding-left: 1rem
+        }
+        table {
+            width: 100%;
+            table-layout: fixed;
+            box-sizing: border-box;
+        }
+        td input {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            border: none;
+            text-align: left;
+        }
+        td input:focus {
+            outline: none;
+        }
+    </style>
+    <button id="addPlayerButton">Add Player</button>
+    <div id="tableContainer">
+        <table id="table">
+            <tr id="playerRow">
+                <th></th>
+               
+            </tr>
+            <tr id="birdScore">
+                <th>Birds</th>
+                
+            </tr>
+            <tr id="bonusScore">
+                <th>Bonus Cards</th>
+            </tr>
+            <tr id="endOfRoundScore">
+                <th>End-Of-Round Goals</th>
+            </tr>
+            <tr id="eggsScore">
+                <th>Eggs</th>
+            </tr>
+            <tr id="foodScore">
+                <th>Food On Cards</th>
+            </tr>
+            <tr id="tuckedScore">
+                <th>Tucked Cards</th>
+            </tr>
+            <tr id="nectarScore">
+                <th>Nectar</th>
+            </tr>
+            <tr id="totalScore">
+                <th>TOTAL</th>
+            </tr>
+        </table>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
