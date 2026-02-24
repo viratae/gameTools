@@ -11,7 +11,6 @@ class Player {
             food: 0,
             tucked: 0,
             nectar: 0,
-           
         }
     }
 
@@ -19,7 +18,9 @@ class Player {
         let total = 0;
         for(let key in this.scores) {
             if(key!= "total") {
-                total += this.scores[key];
+                console.log(key);
+                console.log(game1.scoreMultiplier[key]);
+                total += (this.scores[key] * game1.scoreMultiplier[key]);
             }
         }
         return total;
@@ -39,11 +40,19 @@ class Game {
         this.nextId++;
         return player;
     }
-    removePlayerByID(id) {
+    removePlayerById(id) {
         this.players = this.players.filter(function(player) {
             return player.id != id;
         })
-        
+    }
+    scoreMultiplier = {
+        birds:1,
+        bonus: 1,
+        endOfRound: 1,
+        eggs: 2,
+        food: 1,
+        tucked: 1,
+        nectar: 1,
     }
 }
 const game1 = new Game();
@@ -82,19 +91,31 @@ const screen = (function ScreenController() {
         for(let key in rows) {
             clearRow(rows[key]);
         }
-        //Object.values(rows).forEach(clearRow);
         clearRow(totalScore);
         game.players.forEach(player => {
             let totalCell = document.createElement("td");
             //Creates heading for each player with their name
             const th = document.createElement("th");
-            th.textContent = player.name;
+            const textInput = document.createElement("input");
+            textInput.setAttribute('type', 'text');
+            textInput.setAttribute('value', player.name);
+            textInput.addEventListener('input', () => {
+                player.name = textInput.value;
+            });
+            th.appendChild(textInput);
+            const deleteButton = document.createElement("button");
+            deleteButton.textContent = "x";
+            th.appendChild(deleteButton);
             playerRow.appendChild(th);
+            deleteButton.addEventListener("click", () => {
+                game.removePlayerById(player.id);
+                render(game);
+            })
             category.forEach(score => {
                 const td = document.createElement('td');
                 const input = document.createElement('input');
                 input.setAttribute('type', 'number');
-                input.setAttribute('value', 0);
+                input.setAttribute('value', player.scores[score]);
                 td.appendChild(input);
                 td.classList.add(player.id);
                 input.addEventListener("input", () => {
@@ -115,12 +136,6 @@ const screen = (function ScreenController() {
         render
     }
 })();
-// game1.createPlayer("p1");
-// game1.createPlayer("p2");
-// game1.createPlayer("p3");
-// game1.createPlayer("p4");
-// console.log(game1);
-// console.log(game1.players);
+game1.createPlayer("Player 1");
+game1.createPlayer("Player 2");
 screen.render(game1);
-// game1.removePlayerByID(1);
-// console.log(game1);
