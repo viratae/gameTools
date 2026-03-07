@@ -1,3 +1,38 @@
+const form = (function formController() {
+    const birds = document.querySelector('#birds');
+    const bonus = document.querySelector('#bonus');
+    const endOfRound = document.querySelector('#endOfRound');
+    const eggs = document.querySelector('#eggs');
+    const food = document.querySelector('#food');
+    const tucked = document.querySelector('#tucked');
+    const nectar = document.querySelector('#nectar');
+    const changeWeightButton = document.querySelector('#changeWeightButton');
+    const closeModal = document.querySelector('#closeModal');
+    const modal = document.querySelector('.modal');
+    const weightingForm = document.querySelector('#weightingForm');
+    weightingForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+            game1.scoreMultiplier = {
+            birds: birds.value,
+            bonus: bonus.value,
+            endOfRound: endOfRound.value,
+            eggs: eggs.value,
+            food: food.value,
+            tucked: tucked.value,
+            nectar: nectar.value,
+        }
+        modal.classList.remove("show");
+    })
+    changeWeightButton .addEventListener('click', () => {
+        modal.classList.add("show");
+    });
+    closeModal.addEventListener('click', () => {
+        modal.classList.remove("show");
+    });
+    return {
+
+    }
+})();
 // Player Object
 class Player {
     constructor(name, id) {
@@ -49,7 +84,7 @@ class Game {
         birds:1,
         bonus: 1,
         endOfRound: 1,
-        eggs: 2,
+        eggs: 1,
         food: 1,
         tucked: 1,
         nectar: 1,
