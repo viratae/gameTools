@@ -116,6 +116,11 @@ header p {
     }
     
 }
+@media screen and (max-width: 480px){
+        .navIcon {
+            display: none;
+        }
+}
 @media screen and (max-width: 400px){
     header h1 {
         font-size: 2rem;
@@ -123,9 +128,7 @@ header p {
     header h3 {
         font-size: 1rem;
     }
-    .navIcon {
-        display: none;
-    }
+    
     .navLinks {
         flex-direction: column;
     }

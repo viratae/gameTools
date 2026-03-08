@@ -21,6 +21,7 @@ const form = (function formController() {
             tucked: tucked.value,
             nectar: nectar.value,
         }
+        screen.render(game1);
         modal.classList.remove("show");
     })
     changeWeightButton .addEventListener('click', () => {

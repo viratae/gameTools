@@ -109,24 +109,30 @@
     }
     #tableContainer {
         padding: 0 3rem 0 3rem;
+        overflow-x: auto;
     }
     table, th, td {
         border:1.5px solid black;
         border-collapse: collapse;
         background-color: rgba(255, 255, 255, 0.14);
     }
+    #table th:first-child {
+        min-width: 150px;
+    }
     th, td {
         text-align: left;
         padding-left: 1rem
     }
+    
     table {
         width: 100%;
-        table-layout: fixed;
+        
         box-sizing: border-box;
         padding: 200px;
     }
     td input {
         width: 100%;
+        max-width: 120px;
         margin: 0;
         padding: 0;
         box-sizing: border-box;
@@ -136,6 +142,7 @@
     }
     th input {
         border: none;
+        max-width: 120px;
         margin: 0;
         padding: 0;
         background-color: transparent;
@@ -144,13 +151,56 @@
     td input:focus, th input:focus {
         outline: none;
     }
+    th, th button {
+        vertical-align: top;
+        
+    }
+    
+    th {
+        position: relative;
+    }
+
     th button {
-        float: right;
+        position: absolute;
+        right: 6px;
+        top: 1px;
         border: none;
         background-color: transparent;
         font-weight: bold;
-        margin-right: 5px;
     }
+    
+    @media screen and (max-width: 500px){
+    .gameTitle {
+        font-size: 3rem;
+    }
+    td input, th input {
+        max-width: 80px;
+    }
+    #table th:first-child {
+        min-width: 100px;
+    }
+    #tableContainer {
+        padding: 0 1rem 0 1rem;
+        overflow-x: auto;
+    }
+    @media screen and (max-width: 480px){
+        .navIcon {
+            display: none;
+        }
+     }
+    @media screen and (max-width: 400px){
+        header h1 {
+            font-size: 2rem;
+        }
+        header h3 {
+            font-size: 1rem;
+        }
+        
+        .navLinks {
+            flex-direction: column;
+        }
+    }
+}
     </style>
 </head>
 
