@@ -151,6 +151,7 @@ const screen = (function ScreenController() {
                 const td = document.createElement('td');
                 const input = document.createElement('input');
                 input.setAttribute('type', 'number');
+                
                 input.setAttribute('value', player.scores[score]);
                 td.appendChild(input);
                 td.classList.add(player.id);

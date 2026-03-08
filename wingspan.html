@@ -68,8 +68,18 @@
         margin-top: 4px;
     }
     form input {
-        width: 25px;
+        width: 50px;
         padding-left: 3px;
+    }
+    input[type="number"]::-webkit-outer-spin-button,
+        input[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none; /* Chrome, Safari, Edge, Opera */
+        margin: 0; /* Removes leftover margin */
+    }
+    input[type=number] {
+        -webkit-appearance: textfield;
+        -moz-appearance:    textfield;
+        appearance:         textfield;
     }
     form input:focus {
         outline: none;
@@ -213,31 +223,31 @@
                     <p>Change any of these values to change their score multipliers. For example, setting "Eggs" to 2 doubles the value of each egg.</p>
                     <div>
                         <label for="birds">Birds:</label>
-                        <input id="birds" value="1" type="number" />
+                        <input id="birds" value="1" type="number" step=".25"/>
                     </div>
                     <div>
                         <label for="bonus">Bonus Cards:</label>
-                        <input id="bonus" value="1" type="number" />
+                        <input id="bonus" value="1" type="number" step=".25"/>
                     </div>
                     <div>
                         <label for="endOfRound">End-Of-Round Cards:</label>
-                        <input id="endOfRound" value="1" type="number" />
+                        <input id="endOfRound" value="1" type="number" step=".25"/>
                     </div>
                     <div>
                         <label for="eggs">Eggs:</label>
-                        <input id="eggs" value="1" type="number" />
+                        <input id="eggs" value="1" type="number" step=".25"/>
                     </div>
                     <div>
                         <label for="food">Food on Cards:</label>
-                        <input id="food" value="1" type="number" />
+                        <input id="food" value="1" type="number" step=".25"/>
                     </div>
                     <div>
                         <label for="tucked">Tucked Cards:</label>
-                        <input id="tucked" value="1" type="number" />
+                        <input id="tucked" value="1" type="number" step=".25"/>
                     </div>
                     <div>
                         <label for="nectar">Nectar:</label>
-                        <input id="nectar" value="1" type="number" />
+                        <input id="nectar" value="1" type="number" step=".25"/>
                     </div>
                     <div id="buttonContainer">
                         <button id="submitButton" type="submit">Update Weightings</button>
